@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2B901A02CBF5E2600C5D86A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9019F2CBF5E2600C5D86A /* WelcomeView.swift */; };
 		F22BE3B72CBDC09B008E62DA /* ZeroTraceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22BE3B62CBDC09B008E62DA /* ZeroTraceApp.swift */; };
 		F22BE3B92CBDC09B008E62DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22BE3B82CBDC09B008E62DA /* ContentView.swift */; };
 		F22BE3BB2CBDC09D008E62DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22BE3BA2CBDC09D008E62DA /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D2B9019F2CBF5E2600C5D86A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		F22BE3B32CBDC09B008E62DA /* ZeroTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22BE3B62CBDC09B008E62DA /* ZeroTraceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroTraceApp.swift; sourceTree = "<group>"; };
 		F22BE3B82CBDC09B008E62DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				F22BE3B62CBDC09B008E62DA /* ZeroTraceApp.swift */,
+				D2B9019F2CBF5E2600C5D86A /* WelcomeView.swift */,
 				F22BE3B82CBDC09B008E62DA /* ContentView.swift */,
 				F22BE3C42CBDC105008E62DA /* HomeView.swift */,
 				F22BE3C62CBDC13A008E62DA /* PredictionView.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22BE3C92CBDC156008E62DA /* SettingsView.swift in Sources */,
+				D2B901A02CBF5E2600C5D86A /* WelcomeView.swift in Sources */,
 				F22BE3B92CBDC09B008E62DA /* ContentView.swift in Sources */,
 				F22BE3B72CBDC09B008E62DA /* ZeroTraceApp.swift in Sources */,
 				F22BE3C52CBDC105008E62DA /* HomeView.swift in Sources */,
@@ -284,6 +288,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeroTrace/Preview Content\"";
+				DEVELOPMENT_TEAM = 43R5GX99UB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -312,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeroTrace/Preview Content\"";
+				DEVELOPMENT_TEAM = 43R5GX99UB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
