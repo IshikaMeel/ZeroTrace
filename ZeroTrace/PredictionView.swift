@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PredictionView: View {
     @State private var distance: Double = 0.0
-    @State private var vehicleType: String = "Sedan" // Placeholder for vehicle type
+    @State private var vehicleType: String = "Sedan"
     @State private var predictedEmissions: Double?
 
     var body: some View {
@@ -26,13 +26,11 @@ struct PredictionView: View {
                 Text("Sedan").tag("Sedan")
                 Text("SUV").tag("SUV")
                 Text("Truck").tag("Truck")
-                // Add more vehicle types as needed
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
 
             Button(action: {
-                // Call the function to calculate emissions
                 predictedEmissions = calculateEmissions(distance: distance, vehicleType: vehicleType)
             }) {
                 Text("Predict Emissions")
@@ -52,20 +50,19 @@ struct PredictionView: View {
 
             Spacer()
         }
-        .navigationBarTitle("Prediction", displayMode: .inline)
+        // No need to set navigationBarTitle here since it's set in HomeView
     }
 
     func calculateEmissions(distance: Double, vehicleType: String) -> Double {
-        // Placeholder calculation for emissions
         let emissionsFactor: Double = vehicleType == "SUV" ? 0.25 : vehicleType == "Truck" ? 0.35 : 0.20
-        return distance * emissionsFactor // Example calculation
+        return distance * emissionsFactor
     }
 }
-
 
 #Preview {
     PredictionView()
 }
+
 
 // save button to show history for the user (i.e. firebase)
 // add when the user drove 
