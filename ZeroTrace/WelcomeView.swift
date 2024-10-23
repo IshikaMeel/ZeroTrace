@@ -19,7 +19,7 @@ struct WelcomeView: View {
                         .font(.system(size: 68, weight: .bold))
                         .foregroundColor(.black)
                         .opacity(0.6)
-                        .padding(.trailing, 90)
+                        .padding(.trailing, 130)
                     Text("TRACE")
                         .font(.system(size: 68, weight: .bold))
                         .foregroundColor(.black)
@@ -27,7 +27,13 @@ struct WelcomeView: View {
                 }
                 .padding(.top, 100)
                 
-                // Subtitle - "Track your carbon footprint..."
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:650, height: 200)
+                
+                
+                
                 Text("Track your carbon footprint and make sustainable travel choices.\n\n Powered by AI.\n\n Striving for a sustainable future.") //we can change this to make it say somethingthing better
                     .font(.system(size: 18))
                     .foregroundColor(.black)
