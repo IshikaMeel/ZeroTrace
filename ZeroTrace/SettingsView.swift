@@ -12,7 +12,7 @@ struct SettingsView: View {
     @State private var drivingHours: Int = 0
     @State private var drivingMinutes: Int = 0
     @State private var drivingDate = Date() // Add state for date
-    @State private var drivingLogs: [String] = []
+    @State private var drivingLogs: [DrivingLog] = []
     @State private var showConfirmation = false
 
     var body: some View {
@@ -107,13 +107,21 @@ struct SettingsView: View {
                 // Save Button
                 Button(action: {
                     // Save settings logic and log driving time
-                    let formatter = DateFormatter()
-                    formatter.dateStyle = .short
-                    formatter.timeStyle = .short
-                    let formattedDate = formatter.string(from: drivingDate)
-                    let timeString = "\(drivingHours) hr \(drivingMinutes) min on \(formattedDate)"
-                    drivingLogs.append("Logged: \(timeString)")
-                    print("Settings saved: \(vehicleType), Time logged: \(timeString)")
+                    let newLog = DrivingLog(
+                        vehicleType: vehicleType,
+                        drivingHours: drivingHours,
+                        drivingMinutes: drivingMinutes,
+                        drivingDate: drivingDate
+                    )
+
+                    // Save new log
+                    drivingLogs.append(newLog)
+                    saveLogs() // Persist the updated logs
+
+                    // Prepare data for GPT
+                    let gptInput = prepareDataForGPT(logs: drivingLogs)
+                    print("Data for GPT: \(gptInput)")
+
                     showConfirmation = true
                 }) {
                     Text("Save Settings")
@@ -125,6 +133,7 @@ struct SettingsView: View {
                         .cornerRadius(10)
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
                 }
+
                 .padding(.horizontal)
                 .alert(isPresented: $showConfirmation) {
                     Alert(title: Text("Settings Saved"), message: Text("Your preferences have been updated."), dismissButton: .default(Text("OK")))
@@ -135,15 +144,15 @@ struct SettingsView: View {
                     Text("Logging History")
                         .font(.headline)
                         .foregroundColor(.gray)
-                    
+
                     if drivingLogs.isEmpty {
                         Text("No logs available")
                             .foregroundColor(.gray)
                     } else {
                         ScrollView {
                             VStack(alignment: .leading, spacing: 10) {
-                                ForEach(drivingLogs, id: \.self) { log in
-                                    Text(log)
+                                ForEach(drivingLogs) { log in
+                                    Text(log.formattedLog) // Use formattedLog property
                                         .padding()
                                         .background(Color(.systemGray5))
                                         .cornerRadius(8)
@@ -155,6 +164,7 @@ struct SettingsView: View {
                         .padding(.horizontal)
                     }
                 }
+
                 .padding(.horizontal)
                 
                 Spacer()
